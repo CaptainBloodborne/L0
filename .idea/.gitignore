@@ -8,3 +8,5 @@
 /dataSources.local.xml
 /.idea/
 /vcs.xml
+/dataSources.xml
+/sqldialects.xml
