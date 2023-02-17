@@ -10,8 +10,8 @@ func WriteData(db *sql.DB, orderUid, order string) (result sql.Result, err error
 	return result, err
 }
 
-func getData(db *sql.DB) (result sql.Result, err error) {
-	result, err = db.Exec("SELECT * FROM orders")
+func GetData(db *sql.DB) (rows *sql.Rows, err error) {
+	rows, err = db.Query("SELECT order_uid, order_info FROM orders")
 
-	return result, err
+	return rows, err
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Get Data</title>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+</head>
+<body>
+
+<pre class="json">
+    <h3>OrderUid: {{ .OrderUid }}</h3>
+    <p>TrackNumber: {{ .TrackNumber }}</p>
+    <p>Entry: {{ .Entry  }}</p>
+    <p>Delivery: {{ .Delivery }}</p>
+    <p>Payment: {{ .Payment   }}</p>
+    <p>Items: </p>
+    {{ range .Items }}
+    <p>{{ . }}</p>
+    {{ end }}
+    <p>Locale: {{ .Locale }}</p>
+    <p>CustomerId: {{ .CustomerId }}</p>
+    <p>DeliveryService: {{ .DeliveryService }}</p>
+    <p>ShardKey: {{ .ShardKey  }}</p>
+    <p>SmId: {{ .SmId  }}</p>
+    <p>DateCreated: {{ .DateCreated }}</p>
+    <p>OofShard: {{ .OofShard }}</p>
+</pre>
+
+<script>
+    hljs.highlightBlock(document.querySelector('.json'));
+</script>
+</body>
+</html>

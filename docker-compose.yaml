@@ -13,6 +13,7 @@ services:
       - nats
     ports:
       - "8080:8080"
+    restart: always
   db:
     image: postgres:15-alpine
     volumes:

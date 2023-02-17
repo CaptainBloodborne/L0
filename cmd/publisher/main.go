@@ -31,35 +31,18 @@ func main() {
 	jsonOrder, err := json.Marshal(myOrder)
 	if err == nil {
 		fmt.Println(string(jsonOrder))
-		fmt.Println()
-		fmt.Println(myOrder)
 	} else {
 		fmt.Println(err)
 	}
 
-	// Publish a sample task to the "task.create" subject
-	//task := Task{
-	//	ID:        "1",
-	//	Title:     "Example order",
-	//	Completed: false,
-	//	CreatedAt: time.Now(),
-	//}
-	//
-	//taskData, err := json.Marshal(task)
-	//if err != nil {
-	//	fmt.Println("Error serializing task:", err)
-	//	return
-	//}
 	err = conn.Publish("order.create", jsonOrder)
+	//err = conn.Publish("order.create", []byte("byaka"))
 	if err != nil {
-		fmt.Println("Error publishing task create event:", err)
+		fmt.Println("Error publishing order create event:", err)
 		return
 	}
 
-	fmt.Println("Task successfully published to channel!")
-
-	// Wait for the task to be processed
-	//fmt.Scanln()
+	fmt.Println("Order successfully published to channel!")
 
 }
 

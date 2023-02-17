@@ -11,6 +11,9 @@ then
     echo "PostgreSQL started"
 fi
 
+cd cmd/orders
+go test
+
 /app/orders
 
 exec "$@"
